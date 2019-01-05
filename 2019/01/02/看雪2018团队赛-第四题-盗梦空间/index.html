@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        看雪2018团队赛-第四题-盗梦空间 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/wy.jpg">
+        </div>
+        <div class="name">
+            <i>a1t3r</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简述"><span class="toc-text">简述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题目概览"><span class="toc-text">题目概览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#z3的尝试"><span class="toc-text">z3的尝试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#attach的试探"><span class="toc-text">attach的试探</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#反调试"><span class="toc-text">反调试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#idc-amp-run-trace-上场"><span class="toc-text">idc &amp; run trace 上场</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#idc"><span class="toc-text">idc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#run-trace"><span class="toc-text">run trace</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#清洗混淆的rtrace文件"><span class="toc-text">清洗混淆的rtrace文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pass-nops"><span class="toc-text">pass_nops</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass-rol-to-ror-all"><span class="toc-text">pass_rol_to_ror_all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass-edi-amp-pass-ebp"><span class="toc-text">pass_edi &amp; pass_ebp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass-simplify-same-op-all"><span class="toc-text">pass_simplify_same_op_all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass-push-pop-eax-ebx-ebx-ecx"><span class="toc-text">pass_push_pop_eax_ebx_ebx_ecx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass-unused-before-reassign-all"><span class="toc-text">pass_unused_before_reassign_all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass-ror-to-shift-all"><span class="toc-text">pass_ror_to_shift_all</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#发现tea算法"><span class="toc-text">发现tea算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解密算法"><span class="toc-text">解密算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        看雪2018团队赛-第四题-盗梦空间
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-01-02 17:54:32</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#windows" title="windows">windows</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#混淆" title="混淆">混淆</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Crypto" title="Crypto">Crypto</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#反调试" title="反调试">反调试</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>题目下载：<a href="https://ctf.pediy.com/attach-download-133.htm" target="_blank" rel="noopener">https://ctf.pediy.com/attach-download-133.htm</a></p>
+<p>知识点涉及：</p>
+<ul>
+<li>反调试技巧</li>
+<li>OD清洗rtrace文件脚本</li>
+<li>变异tea算法</li>
+</ul>
+<p>下面按照正确的解题思路讲解，参照了风间仁大佬wp，链接见文末。</p>
+<h1 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h1><p>拿到题目，先运行一下程序，效果如下：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img01.png" alt=""></p>
+<p>CrackMe类型，需要提供正确的序列号获取flag.</p>
+<p>接着用IDA查看一下程序主逻辑：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img02.png" alt=""></p>
+<p>可以看到程序主体只是一个if-else结构，重点取决于check函数：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img03.png" alt=""></p>
+<p>check函数前半部分首先是一堆局部变量的初始化，后面分析可知是预存的5个4x4的矩阵，这里先列出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mat0 = [[0, 0, 0, 0],</span><br><span class="line">        [10, 15, 2, 13,], </span><br><span class="line">        [10, 8, 6, 15,], </span><br><span class="line">        [0, 5, 3, 0],]</span><br><span class="line">mat1 = [[16, 0, 16, 14,], </span><br><span class="line">        [3, 10, 6, 0,], </span><br><span class="line">        [0, 7, 13, 6,], </span><br><span class="line">        [4, 7, 0, 2],]</span><br><span class="line">mat2 = [[6, 16, 0, 12,], </span><br><span class="line">        [0, 11, 16, 12,], </span><br><span class="line">        [8, 12, 12, 0,], </span><br><span class="line">        [6, 0, 11, 13],]</span><br><span class="line">mat3 = [[16, 14, 13, 14,], </span><br><span class="line">        [4, 0, 0, 16,], </span><br><span class="line">        [5, 0, 0, 3,], </span><br><span class="line">        [5, 16, 14, 16],]</span><br><span class="line">expected = [[222105, 494358, 443201, 423901,], </span><br><span class="line">            [310311, 700114, 629640, 620483,], </span><br><span class="line">            [301566, 676368, 606711, 605590,], </span><br><span class="line">            [149250, 339264, 304846, 301296],]</span><br></pre></td></tr></table></figure>
+<p>可以看到4个matX矩阵都至少包含4个0。</p>
+<p>接着就是进行上图操作，校验输入序列号(sn)格式，是否满足：char ∈ (0-9|A-F),len == 16. 如果格式正确就把16长度字符串转换成2个8长度的16进制数sn0,sn1. 举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">input: 1234567890ABCDEF</span><br><span class="line">sn0:0x12345678  sn1:0x90ABCDEF</span><br></pre></td></tr></table></figure>
+<p>接下来调用了confuseFunc函数，这个是一个混淆严重的函数，Hex Rays得到的伪C代码并不可信.需要借助别的工具分析，见下文。</p>
+<blockquote>
+<p>看到char ∈ (0-9|A-F),就应该想到str2hex.</p>
+</blockquote>
+<p>check函数后半部分：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img04.png" alt=""></p>
+<p>首先看到了IsDebuggerPresent()反调试，按照现在目前的逻辑我们应该进入else分支，在else分支中我们把上面提到的4个mat矩阵中包含的0分别用做了一定变换的sn0,sn1值填充，然后进行4个mat矩阵连乘，要求结果矩阵和expected矩阵相等，即可得到flag。</p>
+<p>看样子整体逻辑已经捋清楚了，接下来用z3做下尝试。</p>
+<h1 id="z3的尝试"><a href="#z3的尝试" class="headerlink" title="z3的尝试"></a>z3的尝试</h1><p>利用z3正向约束求解，最终是16个未知数，16个约束方程。最终结果是无解的。当时做对z3不熟，用matlab求解的，无解。在这里也不详细用z3求解了，丢个链接：<a href="https://arabelatso.github.io/2018/06/14/Z3%20API%20in%20Python/" target="_blank" rel="noopener">Z3 API IN PYTHON 中文文档 </a>，方便以后查阅。</p>
+<p>另外，介绍一个技巧，之前用python以为不好获取含未知数的表达式运算，比如，该题目含未知数的矩阵乘法，如何得到矩阵乘法后的16个未知数方程，以为需要考虑字符串之类。所以采用了matlab求解。too native，这里参考Riatre大佬脚本发现：(z3未知量 + python乘法)可以直接得到未知数方程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def matmul(A, B):</span><br><span class="line">  res = [[0] * 4 for _ in range(4)]</span><br><span class="line">  for i in range(4):</span><br><span class="line">    for j in range(4):</span><br><span class="line">      for k in range(4):</span><br><span class="line">        res[i][j] += A[i][k] * B[k][j]</span><br><span class="line">  return res</span><br><span class="line"></span><br><span class="line">print(matmul(mat0, mat1))</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">[[0 + x0*16 + y0*3 + y1*x7 + x1*4, 0 + x0*x4 + y0*10 + y1*7 + x1*7, 0 + x0*16 + y0*6 + y1*13 + x1*x6, 0 + x0*14 + y0*x5 + y1*6 + x1*2], </span><br><span class="line">[205 + 2*x7 + 52, 0 + 10*x4 + 150 + 14 + 91, 276 + 13*x6, 140 + 15*x5 + 12 + 26], </span><br><span class="line">[184 + 6*x7 + 60, 0 + 10*x4 + 80 + 42 + 105, 286 + 15*x6, 140 + 8*x5 + 36 + 30], </span><br><span class="line">[0 + x3*16 + 15 + 3*x7 + x2*4, 0 + x3*x4 + 50 + 21 + x2*7, 0 + x3*16 + 30 + 39 + x2*x6, 0 + x3*14 + 5*x5 + 18 + x2*2]]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>尽量用z3+python求解约束。</p>
+</blockquote>
+<h1 id="attach的试探"><a href="#attach的试探" class="headerlink" title="attach的试探"></a>attach的试探</h1><p>既然按照程序正常的逻辑无法求解，那就要想到反调试了，可能看到的程序逻辑并不是真正的执行逻辑：</p>
+<p>程序可能检测到调试器后，对程序逻辑进行了自修改，从而执行了错误的逻辑。我们采用调试器执行程序，发现程序并没有进行自修改，IDA静态查看的程序逻辑，的确是我们动态执行的逻辑。</p>
+<p>尝试attach到程序，发现程序的执行逻辑的确发生了变化：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img05.png" alt=""></p>
+<p>可以看到，程序并未执行矩阵运算，执行的是原IsDebuggerPresent()的If分支里的逻辑。</p>
+<p>在汇编层面可以看到：<br><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img06.png" alt=""></p>
+<p>.text:003A16BD处的指令被修改了，直接跳入了If分支执行。</p>
+<p>对照一下静态分析时的汇编：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img07.png" alt=""></p>
+<p>连续执行mov eax，imm两次，的确是可疑的点，大佬们直接就看出来了吧。</p>
+<blockquote>
+<p>优先使用attach方式比直接使用调试器debug更容易发现问题。</p>
+</blockquote>
+<h1 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h1><p>接下来，是反调试的定位。并不是很好定位，仔细总结一下该题目的反调试技巧：</p>
+<ul>
+<li>静态分析时看到的是错误的执行逻辑，检测到调试器时，不修改原逻辑。未检测到调试器时，自修改成正确的执行逻辑。</li>
+</ul>
+<p>普通的反调试是，检测到调试器时，修改执行逻辑，这样可以通过下内存写入断点来定位反调试位置。对于该题而言，检测到调试器，不修改。那么就只能通过检索字符串去定位到反调试函数了，目前没有考虑到比较好的方法。</p>
+<p>通过检索字符串可以定位到NtQueryInformationProcess字符串：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img08.png" alt=""></p>
+<p>通过调试发现，程序运行时会执行这一段被混淆的代码，调用NtQueryInformationProcess函数，并对.text:003A16BD处的指令进行修改，如下：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img09.png" alt=""></p>
+<p>定位到了反调试后，看一下真正的执行逻辑：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img10.png" alt=""></p>
+<p>最终比较的是sn0 == 0x87654321 &amp; sn1 == 0x12345678</p>
+<p>运行发现调用confuseFunc函数后的序列号sn0,sn1值发生变化。说明真正check序列号的代码存在于confuseFunc中，接下来就是重点分析混淆严重的confuseFunc函数。</p>
+<h1 id="idc-amp-run-trace-上场"><a href="#idc-amp-run-trace-上场" class="headerlink" title="idc &amp; run trace 上场"></a>idc &amp; run trace 上场</h1><p>回顾一下，程序的反调试只修改了一句指令，使得跳转执行到正确的分支上。真正的check序列号的算法存在于confuseFunc中。confuseFunc是没有修改的，可以直接用调试器debug动态调试confuseFunc。</p>
+<p>confuseFunc函数内部包含反调试，无用循环，SMC等。每执行完一段代码块，都有反调试来控制是否跳转到正确分支。由于代码块混淆严重，且数量过多，我们需要采用OD的run trace功能来记录真正执行过的指令，然后对rtrace文件指令清洗得到最终的校验算法。</p>
+<p>在这之前，我们先分析一下confuseFunc函数开始处的代码块：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img11.png" alt=""></p>
+<p>通过调试发现，首先上图绿框选中处是反调试，查看是否设置BeingDebugged位并存入eax，红框选中处是一段循环，调试情况下得到的eax结果是错误的，当BeingDebugged值为0时，该段循环的eax结果一直为0，离开该循环后，才能跳转到正确的执行逻辑。可以看到该无用循环进行了0x0F204C次，会对后续的的run trace带来困扰（会记录巨量的无用指令，增大存储空间，影响跟踪速度）。这一无用循环应该是出题者刻意设置的，用来阻碍分析者跟踪指令。</p>
+<p>所以第一步，我们应该先利用idc脚本把这一块无用循环nop掉。然后再用OD跟踪指令。</p>
+<h2 id="idc"><a href="#idc" class="headerlink" title="idc"></a>idc</h2><p>pattern如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">code:</span><br><span class="line">    jb xxxx</span><br><span class="line">    call $+5</span><br><span class="line">pattern:</span><br><span class="line">    72 ?? E8 00 00 00 00</span><br></pre></td></tr></table></figure>
+<p>对confuseFunc函数startPos-endPos之间pattern全用90(nop)填充即可。</p>
+<h2 id="run-trace"><a href="#run-trace" class="headerlink" title="run trace"></a>run trace</h2><p>接下来进行run trace:</p>
+<blockquote>
+<p>注意，进行run trace时，使用吾爱OD的英文原版，其汉化版Command列，没有列名，收集到的rtrace文件不含指令</p>
+</blockquote>
+<p>执行完run trace之后，会得到一个rtrace文件：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img12.png" alt=""></p>
+<p>所有confuseFunc函数内部执行过的指令约有105010条指令。所以利用idc脚本nop循环是很有必要的。</p>
+<blockquote>
+<p>run trace之前应该先分析基本块，提前发现妨碍run trace的操作，利用idc脚本nop</p>
+</blockquote>
+<h1 id="清洗混淆的rtrace文件"><a href="#清洗混淆的rtrace文件" class="headerlink" title="清洗混淆的rtrace文件"></a>清洗混淆的rtrace文件</h1><p>先放上风间仁大佬脚本主体：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img13.png" alt=""></p>
+<p>收集到的原始rtrace.txt约有105010条指令。我们的目标是尽可能的去混淆，使得原始算法指令逻辑清晰可理解。</p>
+<p>接下来按照正向思路一步一步分析脚本操作：</p>
+<blockquote>
+<p>化简是一步一步的</p>
+</blockquote>
+<h2 id="pass-nops"><a href="#pass-nops" class="headerlink" title="pass_nops"></a>pass_nops</h2><p>首先，在rtrace.txt开头就可以发现指令中有不少影响标志寄存器的指令：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img14.png" alt=""></p>
+<p>全局搜索一下发现rtrace.txt中所有的跳转指令全部是jmp指令，与标志寄存器无关。所以可以确定这些cld,test之类的指令是混淆添加的。</p>
+<p>所以第一步，先把这些无用指令（包含我们idc替换的nop指令）先清洗掉。pass_nops函数如下：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img15.png" alt=""></p>
+<p>主要逻辑就是跳过一些无用指令,主要包含：</p>
+<ul>
+<li>test,cld,cmp,nop,cmc,bt,clc,stc</li>
+<li>or exx,0x0 # 还是exx</li>
+<li>and exx, 0xFFFFFFFF # 还是exx</li>
+<li>call transfor.011F1DEE -&gt; call 0x011F1DEE # 修正call指令。</li>
+</ul>
+<p>清洗后，指令数约：84571</p>
+<h2 id="pass-rol-to-ror-all"><a href="#pass-rol-to-ror-all" class="headerlink" title="pass_rol_to_ror_all"></a>pass_rol_to_ror_all</h2><p>接着浏览trace_new.txt中的指令，同样开头就可以发现不少rol,ror指令：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img16.png" alt=""></p>
+<p>首先循环移位指令是比较少用的，而且像图中这样连续循环移位更是少见，应该是混淆导致。其次，我们在pass_nops分析中也说了标志寄存器是无用的，所以忽略标志位，rol xx和ror 32-xx是等效的，仔细观察可以发现不少rol和ror指令的立即数超过了32，这些点都是冗余的。为了后续更好的处理，我们把rol和ror指令都统一转化成ror指令，并将rol的立即数做(%32)处理。<br>pass_rol_to_ror_all函数如下：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img17.png" alt=""></p>
+<p>分别对涉及到的寄存器做rol-&gt;ror的指令转换。</p>
+<p>由于只做了指令转换，清洗后，指令数没有变化：84571</p>
+<h2 id="pass-edi-amp-pass-ebp"><a href="#pass-edi-amp-pass-ebp" class="headerlink" title="pass_edi &amp; pass_ebp"></a>pass_edi &amp; pass_ebp</h2><p>接着浏览新得到的trace_new.txt中的指令，同样开头就可以发现一些优化点：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img18.png" alt=""></p>
+<p>上图3-6行逻辑，基本就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov edi,xxx</span><br><span class="line">sub/add edi,xxx</span><br><span class="line">...</span><br><span class="line">mov exx,[ebp+edixxx]</span><br></pre></td></tr></table></figure>
+<p>与之类似的还有：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img19.png" alt=""></p>
+<p>它的pattern是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov edi,xxx</span><br><span class="line">sub/add edi,xxx</span><br><span class="line">...</span><br><span class="line">xxx exx,edi</span><br></pre></td></tr></table></figure>
+<p>它们的pattern都是类似的，都可以优化成xxx exx,imm或xxx exx,[ebp+imm]。</p>
+<p>为了更好的后续分析，这种模式也是需要优化的。其实清洗的过程就是不断优化代码的过程，真正编译器生成的汇编代码不会那么傻，那么多相邻的重复指令。</p>
+<blockquote>
+<p>所以看到冗余的点，别想太多，优化就完事了。</p>
+</blockquote>
+<p>pass_edi和pass_ebp的主体逻辑就是把以上pattern化为一条指令xxx exx,imm或xxx exx,[ebp+imm]。期间还涉及相邻重复指令的合并，比如连续sub/add。</p>
+<p>执行完pass_edi和pass_ebp后，指令数约：68881</p>
+<h2 id="pass-simplify-same-op-all"><a href="#pass-simplify-same-op-all" class="headerlink" title="pass_simplify_same_op_all"></a>pass_simplify_same_op_all</h2><p>接着浏览trace_new.txt中的指令，同样开头就可以发现不少相邻的相同指令：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img20.png" alt=""></p>
+<p>这个存在必然也是混淆所影响的，不知道叫啥技术。但是为了汇编代码的可读性，我们仍需要把这种连续的相同指令进行合并。</p>
+<blockquote>
+<p>注意，由于我们清洗掉一些指令后，可能原本不相邻的相同指令，变得相邻，所以我们后面会重复调用pass_simplify_same_op_all函数确保清洗彻底。</p>
+</blockquote>
+<p>pass_simplify_same_op_all函数：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img21.png" alt=""></p>
+<p>函数功能是对涉及到寄存器的add,sub,ror连续操作进行合并优化。</p>
+<p>执行完pass_simplify_same_op_all后，指令数约：52317</p>
+<h2 id="pass-push-pop-eax-ebx-ebx-ecx"><a href="#pass-push-pop-eax-ebx-ebx-ecx" class="headerlink" title="pass_push_pop_eax_ebx_ebx_ecx"></a>pass_push_pop_eax_ebx_ebx_ecx</h2><p>接着浏览trace_new.txt中的指令，结合调试会发现confuseFunc中的SMC算法，代码边执行边还原，pattern为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push eax </span><br><span class="line">push ebx</span><br><span class="line">push ecx</span><br><span class="line">... # SMC</span><br><span class="line">pop ecx</span><br><span class="line">pop ebx</span><br><span class="line">pop eax</span><br></pre></td></tr></table></figure>
+<p>这块的指令篇幅巨大，因为每个混淆的代码块的末端都是SMC解码后续的指令，才能继续执行。但在rtrace中，这一段代码与序列号校验算法无关，所以也需要清除掉。</p>
+<p>pass_push_pop_eax_ebx_ebx_ecx函数内容如下：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img22.png" alt=""></p>
+<p>可以看到函数逻辑就是检测pattern包含的连续指令，跳过它们之间的指令。</p>
+<p>执行完pass_push_pop_eax_ebx_ebx_ecx后，指令数骤减为：6013</p>
+<p>清洗后我们发现，由于清除掉了一些指令，使得原本不相邻的指令变得相邻，于是trace_new文件中又出现了我们之前清理过的pattern:</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img23.png" alt=""></p>
+<p>为了确保清洗彻底，我们将整体的清洗逻辑执行两遍：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img24.png" alt=""></p>
+<p>清洗后，指令数变为：4084</p>
+<p>已经大大缩减了指令数</p>
+<h2 id="pass-unused-before-reassign-all"><a href="#pass-unused-before-reassign-all" class="headerlink" title="pass_unused_before_reassign_all"></a>pass_unused_before_reassign_all</h2><p>继续浏览新得到的trace_new.txt, 在开头也可以发现一些用于混淆的无用指令：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img25.png" alt=""></p>
+<p>看到连续对一个寄存器操作，最后mov一下，之前的所有操作可以算是无用指令，这样的指令也应该清理掉。</p>
+<p>pass_unused_before_reassign_all函数如下：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img26.png" alt=""></p>
+<p>pass_unused_before_reassign的主要逻辑是：</p>
+<ol>
+<li>如果当前指令中exx作为目标寄存器（即xxx <strong>exx</strong>, imm） -&gt; 向后寻找到下一个含exx的指令</li>
+<li>如果exx作为目标寄存器，说明第一条exx指令是无用的。<br>如果exx作为源寄存器，说明第一条指令中exx的值被使用了，指令有效，不清除。</li>
+</ol>
+<p>同样为了清洗彻底，反复执行pass_unused_before_reassign_all5次，直到指令数稳定。</p>
+<p>清洗后，指令数为：909</p>
+<p>指令数又大幅度减少。</p>
+<h2 id="pass-ror-to-shift-all"><a href="#pass-ror-to-shift-all" class="headerlink" title="pass_ror_to_shift_all"></a>pass_ror_to_shift_all</h2><p>至此，其实指令已经具备了较好的可读性，可以看到一片局部变量的初始化操作：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img27.png" alt=""></p>
+<p>仔细查看指令，其实已经可以发现一些tea算法的特征，比如ror eax,0x5;ror eax,0x4 相关的指令，循环移位指令并不常用，熟悉tea算法的朋友知道：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img28.png" alt=""></p>
+<p>tea的加解密算法中都有包含shl xxx,4;shr xxx,5 这种类似的指令：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img29.png" alt=""></p>
+<p>仔细观察上图可以发现ror eax,0x5; and eax,0x7FFFFFF 其实等价于shr eax,0x5。说明这两条指令也是被混淆的。<br>所以pass_ror_to_shift_all的功能就是把ror exx,imm; and exx,imm;这种组合指令转化为原本的shl/shr指令。</p>
+<p>至此，rtrace文件清洗完毕，最终指令数为：843</p>
+<p>此时，指令可读性很强，tea算法的特征也表露清晰。</p>
+<blockquote>
+<p>仔细一步步化简，守得云开见月明</p>
+</blockquote>
+<h1 id="发现tea算法"><a href="#发现tea算法" class="headerlink" title="发现tea算法"></a>发现tea算法</h1><p>现在我们可以仔细的审查这800多行指令，识别其算法特征。</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img30.png" alt=""></p>
+<p>根据上图可以明显的看出tea的算法特征，比如shl ecx,0x4;shr eax,0x5;xor ecx,edx等仔细观察的话具有明显的tea的痕迹。对照tea的原始加密算法：</p>
+<p><img src="/2019/01/02/看雪2018团队赛-第四题-盗梦空间/img28.png" alt=""></p>
+<p>由此我们可以一步步的翻译指令还原出其变异后的tea算法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">void encrypt()</span><br><span class="line">&#123;</span><br><span class="line">	DWORD sn[2] = &#123; 0x12345678, 0x90ABCDEF &#125;;</span><br><span class="line">	const char *key = &quot;One shall stand and one shall fall.&quot;;</span><br><span class="line">	DWORD *k = (DWORD *)key;</span><br><span class="line">	DWORD y = sn[0];</span><br><span class="line">	DWORD z = sn[1];</span><br><span class="line">	DWORD sum = 0;</span><br><span class="line">	DWORD delta = 0x89ABCDEF;</span><br><span class="line">	DWORD arg_10 = 0x67452301;</span><br><span class="line">	DWORD arg_14 = 0xEFCDAB89;</span><br><span class="line">	DWORD arg_18 = 0x98BADCFE;</span><br><span class="line">	DWORD arg_1C = 0x10325476;</span><br><span class="line">	DWORD arg_20 = 0x7380166F;</span><br><span class="line">	DWORD arg_24 = 0x4914B2B9;</span><br><span class="line">	DWORD arg_28 = 0x172442D7;</span><br><span class="line">	DWORD arg_2C = 0xDA8A0600;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	y -= (~arg_10 + 0x3eccd87b) &lt;&lt; 7;</span><br><span class="line">	z -= (0x548A46D1 - arg_14) &gt;&gt; 9;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	y -= (0xFBB23022 - arg_18) &lt;&lt; 5;</span><br><span class="line">	z -= ((arg_1C - 0x100ca839) &gt;&gt; 6) | arg_28;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	y -= (0xF1E85296 - arg_1C) &gt;&gt; 9;</span><br><span class="line">	z -= (0x8A6F6B3A - arg_10) &lt;&lt; 4;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	y -= (~arg_14 - 0x6b9a2d27) &lt;&lt; 8;</span><br><span class="line">	z -= (arg_1C &lt;&lt; 3) + 0xB4915A30;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	y -= ((arg_18 - 0x1b9e4315) &gt;&gt; 2) &amp; k[1];</span><br><span class="line">	z -= (0xC2CFE269 - arg_10) &gt;&gt; 5;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	y -= (0xD8D8F314 - arg_28) &lt;&lt; 5;</span><br><span class="line">	z -= (0xD4C61A57 - arg_14) &gt;&gt; 6;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	y -= ((arg_1C + 0x2077dfe7) &gt;&gt; 8);</span><br><span class="line">	z -= (arg_14 + 0x2aedddff) &lt;&lt; 4;</span><br><span class="line"></span><br><span class="line">	sum += delta;</span><br><span class="line">	y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">	z += ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">	printf(&quot;%x %x\n&quot;, y, z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，这里采用的C，当然也可以用python,但首先python会遇到数值溢出32位的情况，需要自行约束，比较麻烦，也比较臃肿。其次本人实验过程中，譬如这句y += ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1])得到的结果和y = y+ ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1])结果不一致。遂还是选择了C++.</p>
+<blockquote>
+<p>感觉通过汇编指令还原代码，还是C比较方便一些。</p>
+</blockquote>
+<h1 id="解密算法"><a href="#解密算法" class="headerlink" title="解密算法"></a>解密算法</h1><p>之后根据得到的加密算法书写解密算法，只需把执行顺序颠倒，加减颠倒即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br><span class="line"></span><br><span class="line">z += (arg_14 + 0x2aedddff) &lt;&lt; 4;</span><br><span class="line">y += ((arg_1C + 0x2077dfe7) &gt;&gt; 8);</span><br><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br><span class="line"></span><br><span class="line">z += (0xD4C61A57 - arg_14) &gt;&gt; 6;</span><br><span class="line">y += (0xD8D8F314 - arg_28) &lt;&lt; 5;</span><br><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br><span class="line"></span><br><span class="line">z += (0xC2CFE269 - arg_10) &gt;&gt; 5;</span><br><span class="line">y += ((arg_18 - 0x1b9e4315) &gt;&gt; 2) &amp; k[1];</span><br><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br><span class="line"></span><br><span class="line">z += (arg_1C &lt;&lt; 3) + 0xB4915A30;</span><br><span class="line">y += (~arg_14 - 0x6b9a2d27) &lt;&lt; 8;</span><br><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br><span class="line"></span><br><span class="line">z += (0x8A6F6B3A - arg_10) &lt;&lt; 4;</span><br><span class="line">y += (0xF1E85296 - arg_1C) &gt;&gt; 9;</span><br><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br><span class="line"></span><br><span class="line">z += ((arg_1C - 0x100ca839) &gt;&gt; 6) | arg_28;</span><br><span class="line">y += (0xFBB23022 - arg_18) &lt;&lt; 5;</span><br><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br><span class="line"></span><br><span class="line">z += (0x548A46D1 - arg_14) &gt;&gt; 9;</span><br><span class="line">y += (~arg_10 + 0x3eccd87b) &lt;&lt; 7;</span><br><span class="line">z -= ((y &lt;&lt; 4) + k[2]) ^ (y + sum) ^ ((y &gt;&gt; 5) + k[3]);</span><br><span class="line">y -= ((z &lt;&lt; 4) + k[0]) ^ (z + sum) ^ ((z &gt;&gt; 5) + k[1]);</span><br><span class="line">sum -= delta;</span><br></pre></td></tr></table></figure>
+<p>最终得到序列号:285764B86F41B019</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这题考察分析者的识别反调试，去混淆脚本，识别常用加密算法等能力。<br>通过此题，学习到了z3工具的使用，去混淆脚本的编写思路，受益良多，再次感谢风间仁大佬。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://ctf.pediy.com/game-team_fight-76.htm" target="_blank" rel="noopener">题目发布页</a></p>
+<p><a href="https://bbs.pediy.com/thread-248277.htm" target="_blank" rel="noopener">风间仁大佬wp</a></p>
+<p><a href="https://bbs.pediy.com/thread-248285.htm" target="_blank" rel="noopener">Riatre大佬wp</a></p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
